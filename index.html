@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- css link -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 
 <body class="bg-base-200 w-screen h-screen flex items-center">
@@ -36,13 +36,14 @@
         <fieldset class="fieldset bg-base-100 border-base-300 rounded-box w-xs p-4">
 
             <label class="label font-bold">Username</label>
-            <input type="email" class="input" placeholder="Enter Username" />
+            <input value="admin" id="Username" type="email" class="input" placeholder="Enter Username" />
             <p class="text-primary pb-4">Default: admin</p>
 
             <label class="label font-bold">Password</label>
-            <input type="password" class="input" placeholder="Enter Password" />
+            <input value="admin123" id="password" type="password" class="input" placeholder="Enter Password" />
+            <p class="text-primary pb-4">Default: admin123</p>
 
-            <button class="btn btn-neutral mt-4 bg-primary">Login</button>
+            <button id="login-button" class="btn btn-neutral mt-4 bg-primary">Login</button>
         </fieldset>
         <hr class="text-neutral/20 pt-4">
         <p class="text-center text-[12px] text-neutral/50">Demo Credentials:</p>
