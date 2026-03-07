@@ -32,12 +32,13 @@
             <div class="flex ">
                 <div class="flex items-center">
                     <img src="./assets/github-logo.png" alt="">
-                <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
+                    <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
                 </div>
             </div>
             <div class="flex gap-2">
                 <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-                <button class="btn bg-primary text-white">New Issue</button>
+                <button class="btn bg-primary text-white"><span><i class="fa-solid fa-plus"></i></span> New
+                    Issue</button>
             </div>
         </div>
     </header>
@@ -48,6 +49,57 @@
             <button id="all-button" onclick="button('all')" class="btn btn-primary">All</button>
             <button id="open-button" onclick="button('open')" class="btn">Open</button>
             <button id="closed-button" onclick="button('closed')" class="btn">Closed</button>
+        </section>
+
+
+        <!-- all issue section -->
+
+        <section class="bg-base-200">
+           <div class="w-10/12 mx-auto bg-base-200">
+             <div class="flex items-center justify-between bg-base-100 p-7 mt-3 rounded-lg">
+                <div class="flex gap-3">
+                    <img src="./assets/Aperture.png" alt="circle image">
+                    <div>
+                        <p class="font-bold"><span id="total-number">50</span> Issues</p>
+                        <p class="text-neutral/50 text-[14px]">Track and manage your project issues</p>
+                    </div>
+                </div>
+                <ul class="flex gap-3">
+                    <li><span class=" h-[3px] w-[px] rounded-full bg-green-500 text-green-500">rrrr</span> open</li>
+                    <li><span class=" h-[3px] w-[px] rounded-full bg-violet-500 text-violet-500">rrrr</span> closed</li>
+                </ul>
+            </div>
+
+
+            <!-- issue container -->
+            <div>
+                <div id="issue-container" class="grid grid-cols-3">
+                    <!-- <div class=" border-t-3 bg-base-100 border-green-500 rounded-xl p-4 m-5">
+                        <div class="flex justify-between items-center">
+                            <img src="./assets/Open-Status.png" alt="">
+                            <span class="btn rounded-full">HIGH</span>
+                        </div>
+                        <div>
+                            <p class="font-bold pt-2">Fix navigation menu on mobile devices</p>
+                            <p class="text-neutral/50 text-[13px]">The navigation menu doesn't collapse properly on
+                                mobile devices...</p>
+                        </div>
+                        <div class="flex gap-9 items-center py-5">
+                            <span><i class="fa-solid fa-bug"></i> Bug</span>
+                            <span><i class="fa-regular fa-life-ring"></i> help wanted</span>
+                        </div>
+                        <hr class="text-neutral/30">
+                        <div class="text-[13px] text-neutral/50 py-3 space-y-2">
+                            <p>#1 by john_doe</p>
+                            <p>1/15/2024</p>
+                        </div>
+                    </div> -->
+
+
+                </div>
+            </div>
+           </div>
+
         </section>
     </main>
 
