@@ -25,9 +25,34 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
-    <h1>hello my name is shuvro biswas nayon</h1>
-    
+<body class="bg-base-200 w-screen h-screen flex items-center">
+
+    <section class="bg-white max-w-md mx-auto py-10 px-5 rounded-xl">
+        <div class="mx-auto text-center pb-6">
+            <img class="mx-auto pb-5" src="./assets/github-logo.png" alt="">
+            <h3 class="font-bold text-2xl">GitHub Issues Tracker</h3>
+            <p class="text-neutral/50">Sign in to manage your issues</p>
+        </div>
+        <fieldset class="fieldset bg-base-100 border-base-300 rounded-box w-xs p-4">
+
+            <label class="label font-bold">Username</label>
+            <input type="email" class="input" placeholder="Enter Username" />
+            <p class="text-primary pb-4">Default: admin</p>
+
+            <label class="label font-bold">Password</label>
+            <input type="password" class="input" placeholder="Enter Password" />
+
+            <button class="btn btn-neutral mt-4 bg-primary">Login</button>
+        </fieldset>
+        <hr class="text-neutral/20 pt-4">
+        <p class="text-center text-[12px] text-neutral/50">Demo Credentials:</p>
+        <div class="bg-base-200 text-center py-3 rounded-md text-[14px]">
+            <p>Username: <span class="text-neutral/70">admin</span> </p>
+            <p>Password: <span class="text-neutral/70">admin123</span> </p>
+        </div>
+    </section>
+
+
     <script src="./scripts/login.js"></script>
 </body>
 
