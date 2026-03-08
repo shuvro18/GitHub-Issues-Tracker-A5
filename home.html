@@ -36,9 +36,9 @@
                 </div>
             </div>
             <div class="flex gap-2">
-                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-                <button class="btn bg-primary text-white"><span><i class="fa-solid fa-plus"></i></span> New
-                    Issue</button>
+                <input id="input" type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                <button id="search-button" class="btn bg-primary text-white"><span><i
+                            class="fa-solid fa-plus"></i></span> New Issue</button>
             </div>
         </div>
     </header>
@@ -51,30 +51,53 @@
             <button id="closed-button" onclick="button('closed')" class="btn">Closed</button>
         </section>
 
+        <!-- <div>
+            <h2 class="font-bold text-xl">Fix broken image uploads</h2>
+            <div class="flex items-center gap-3 py-4">
+                <button class="btn rounded-full">Opened</button>
+                <p class="text-[14px] text-neutral/50">Opened by Fahim Ahmed</p>
+                <p class="text-[14px] text-neutral/50">22/02/2026</p>
+            </div>
+            <div class="flex gap-9 items-center py-5">
+                <span class="">bug</span>
+                <span class="">ghura</span>
+            </div>
+            <p class="text-neutral/50 pb-4">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+            <div class="bg-bse-200 p-4 flex gap-39">
+                <p>Assignee: <br>
+                Fahim Ahmed</p>
+                <p>
+                    Priority: <br>
+                    <span class="btn rounded-full bg-pink-500">High</span>
+                </p>
+            </div>
+        </div> -->
+
 
         <!-- all issue section -->
 
         <section class="bg-base-200">
-           <div class="w-10/12 mx-auto bg-base-200">
-             <div class="flex items-center justify-between bg-base-100 p-7 mt-3 rounded-lg">
-                <div class="flex gap-3">
-                    <img src="./assets/Aperture.png" alt="circle image">
-                    <div>
-                        <p class="font-bold"><span id="total-number">50</span> Issues</p>
-                        <p class="text-neutral/50 text-[14px]">Track and manage your project issues</p>
+            <div class="w-10/12 mx-auto bg-base-200">
+                <div class="flex items-center justify-between bg-base-100 p-7 mt-3 rounded-lg">
+                    <div class="flex gap-3">
+                        <img src="./assets/Aperture.png" alt="circle image">
+                        <div>
+                            <p class="font-bold"><span id="total-number">50</span> Issues</p>
+                            <p class="text-neutral/50 text-[14px]">Track and manage your project issues</p>
+                        </div>
                     </div>
+                    <ul class="flex gap-3">
+                        <li><span class=" h-[3px] w-[px] rounded-full bg-green-500 text-green-500">rrrr</span> open</li>
+                        <li><span class=" h-[3px] w-[px] rounded-full bg-violet-500 text-violet-500">rrrr</span> closed
+                        </li>
+                    </ul>
                 </div>
-                <ul class="flex gap-3">
-                    <li><span class=" h-[3px] w-[px] rounded-full bg-green-500 text-green-500">rrrr</span> open</li>
-                    <li><span class=" h-[3px] w-[px] rounded-full bg-violet-500 text-violet-500">rrrr</span> closed</li>
-                </ul>
-            </div>
 
 
-            <!-- issue container -->
-            <div>
-                <div id="issue-container" class="grid grid-cols-3">
-                    <!-- <div class=" border-t-3 bg-base-100 border-green-500 rounded-xl p-4 m-5">
+                <!-- issue container -->
+                <div>
+                    <div id="issue-container" class="grid grid-cols-3">
+                        <!-- <div class=" border-t-3 bg-base-100 border-green-500 rounded-xl p-4 m-5">
                         <div class="flex justify-between items-center">
                             <img src="./assets/Open-Status.png" alt="">
                             <span class="btn rounded-full">HIGH</span>
@@ -96,9 +119,29 @@
                     </div> -->
 
 
+                    </div>
+                </div>
+
+                <!-- modal section -->
+                <div>
+                    <!-- Open the modal using ID.showModal() method -->
+                    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+                    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+                        <div  class="modal-box">
+                            <div id="modal-box" class="py-3">
+
+                            </div>
+
+                            <div class="modal-action">
+                                <form method="dialog">
+                                    <!-- if there is a button in form, it will close the modal -->
+                                    <button class="btn">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
             </div>
-           </div>
 
         </section>
     </main>
