@@ -37,7 +37,7 @@
             </div>
             <div class="flex gap-2">
                 <input id="input" type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-                <button id="search-button" class="btn bg-primary text-white"><span><i
+                <button onclick="button('search')" id="search-button" class="btn bg-primary text-white"><span><i
                             class="fa-solid fa-plus"></i></span> New Issue</button>
             </div>
         </div>
@@ -82,7 +82,7 @@
                     <div class="flex gap-3">
                         <img src="./assets/Aperture.png" alt="circle image">
                         <div>
-                            <p class="font-bold"><span id="total-number">50</span> Issues</p>
+                            <p class="font-bold"><span id="total-number">0</span> Issues</p>
                             <p class="text-neutral/50 text-[14px]">Track and manage your project issues</p>
                         </div>
                     </div>
@@ -96,30 +96,28 @@
 
                 <!-- issue container -->
                 <div>
-                    <div id="issue-container" class="grid grid-cols-3">
-                        <!-- <div class=" border-t-3 bg-base-100 border-green-500 rounded-xl p-4 m-5">
-                        <div class="flex justify-between items-center">
-                            <img src="./assets/Open-Status.png" alt="">
-                            <span class="btn rounded-full">HIGH</span>
-                        </div>
-                        <div>
-                            <p class="font-bold pt-2">Fix navigation menu on mobile devices</p>
-                            <p class="text-neutral/50 text-[13px]">The navigation menu doesn't collapse properly on
-                                mobile devices...</p>
-                        </div>
-                        <div class="flex gap-9 items-center py-5">
-                            <span><i class="fa-solid fa-bug"></i> Bug</span>
-                            <span><i class="fa-regular fa-life-ring"></i> help wanted</span>
-                        </div>
-                        <hr class="text-neutral/30">
-                        <div class="text-[13px] text-neutral/50 py-3 space-y-2">
-                            <p>#1 by john_doe</p>
-                            <p>1/15/2024</p>
-                        </div>
-                    </div> -->
+                    <div id="issue-container" class="grid grid-cols-3 max-[500px]:grid-cols-1 max-[850px]:grid-cols-2 grid-flow-dense">
 
 
                     </div>
+                </div>
+
+                <!-- open container -->
+                <div>
+                    <div id="open-container" class="grid grid-cols-3 max-[500px]:grid-cols-1 max-[850px]:grid-cols-2 grid-flow-dense hidden">
+                        <p>hello</p>
+                    </div>
+                </div>
+                
+                
+                <!-- closed container -->
+                <div>
+                    <div id="closed-container" class="grid grid-cols-3 max-[500px]:grid-cols-1 max-[850px]:grid-cols-2 hidden grid-flow-dense">
+                        <p>hello</p>
+                    </div>
+                </div>
+                <div id="emty">
+                    
                 </div>
 
                 <!-- modal section -->

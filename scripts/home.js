@@ -1,6 +1,8 @@
 const issueContainer = document.getElementById("issue-container");
+const openContainer = document.getElementById("open-container");
+const closedContainer = document.getElementById("closed-container");
 const totalCount = document.getElementById("total-number");
-
+let currentStatus = "all";
 
 const span = (arr) => {
   const html = arr.map(
@@ -20,8 +22,26 @@ function button(tab) {
       takeButtons.classList.remove("btn-primary");
     }
   }
+
+  const allIssueContainer = [issueContainer, openContainer, closedContainer];
+  for (const a of allIssueContainer) {
+    a.classList.add("hidden");
+  }
+
+  if (tab === "all") {
+    issueContainer.classList.remove("hidden");
+  } else if (tab === "open") {
+    openContainer.classList.remove("hidden");
+  } else if (tab === "closed") {
+    closedContainer.classList.remove("hidden");
+  } else if (tab === "search") {
+    closedContainer.classList.add("hidden");
+    openContainer.classList.add("hidden");
+    issueContainer.classList.remove("hidden");
+  }
 }
 
+// all button
 document.getElementById("all-button").addEventListener(
   "click",
   (ghurar = (dim) => {
@@ -31,6 +51,95 @@ document.getElementById("all-button").addEventListener(
   }),
 );
 
+// open button
+
+document.getElementById("open-button").addEventListener("click", () => {
+  fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    .then((res) => res.json())
+    .then((data) => displayOpen(data.data));
+});
+const displayOpen = (alls) => {
+  // console.log(alls);
+  const issueContainer = document.getElementById("open-container");
+  issueContainer.innerHTML = "";
+  let count = 0;
+  alls.forEach((all) => {
+    if (all.status !== "open") {
+      return;
+    }
+    const div = document.createElement("div");
+    div.innerHTML = `
+    
+                    <div onclick="infoFn(${all.id})" class=" border-t-3 bg-base-100 ${all.status === "open" ? "border-green-500" : "border-violet-500"}  rounded-xl p-4 m-5">
+                        <div class="flex justify-between items-center">
+                            ${all.priority === "low" ? "<i class='fa-regular fa-circle-check'></i>" : "<img src='./assets/Open-Status.png'>"}
+                            <span class="btn rounded-full">${all.priority}</span>
+                        </div>
+                        <div>
+                            <p class="font-bold pt-2">${all.title}</p>
+                            <p class="text-neutral/50 text-[13px]">${all.description}</p>
+                        </div>
+                        <div class="flex gap-9 items-center py-5">
+                            ${span(all.labels)}
+                        </div>
+                        <hr class="text-neutral/30">
+                        <div class="text-[13px] text-neutral/50 py-3 space-y-2">
+                            <p>${all.author}</p>
+                            <p>${all.createdAt}</p>
+                        </div>
+                    </div>
+    
+    `;
+    count++;
+    totalCount.innerText = count;
+    issueContainer.append(div);
+  });
+};
+
+// closed button
+document.getElementById("closed-button").addEventListener("click", () => {
+  fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    .then((res) => res.json())
+    .then((data) => displayClosed(data.data));
+});
+
+const displayClosed = (alls) => {
+  // console.log(alls);
+  const issueContainer = document.getElementById("closed-container");
+  issueContainer.innerHTML = "";
+  let count = 0;
+  alls.forEach((all) => {
+    if (all.status !== "closed") {
+      return;
+    }
+    const div = document.createElement("div");
+    div.innerHTML = `
+    
+                    <div onclick="infoFn(${all.id})" class=" border-t-3 bg-base-100 ${all.status === "open" ? "border-green-500" : "border-violet-500"}  rounded-xl p-4 m-5">
+                        <div class="flex justify-between items-center">
+                            ${all.priority === "low" ? "<i class='fa-regular fa-circle-check'></i>" : "<img src='./assets/Open-Status.png'>"}
+                            <span class="btn rounded-full">${all.priority}</span>
+                        </div>
+                        <div>
+                            <p class="font-bold pt-2">${all.title}</p>
+                            <p class="text-neutral/50 text-[13px]">${all.description}</p>
+                        </div>
+                        <div class="flex gap-9 items-center py-5">
+                            ${span(all.labels)}
+                        </div>
+                        <hr class="text-neutral/30">
+                        <div class="text-[13px] text-neutral/50 py-3 space-y-2">
+                            <p>${all.author}</p>
+                            <p>${all.createdAt}</p>
+                        </div>
+                    </div>
+    
+    `;
+    count++;
+    totalCount.innerText = count;
+    issueContainer.append(div);
+  });
+};
 
 // {
 //     "id": 2,
@@ -55,11 +164,12 @@ const infoFn = (id) => {
     .then((data) => showModal(data.data));
 };
 
+// modals
 const showModal = (modal) => {
   const modalBox = document.getElementById("modal-box");
   modalBox.innerHTML = `
-  <div>
-            <h2 class="font-bold text-xl">${modal.title}</h2>
+        <div>
+            <h2 class="font-bold text-xl">${modal.title ? modal.title : "No match found"}</h2>
             <div class="flex items-center gap-3 py-4">
                 <button class="btn rounded-full">${modal.status}</button>
                 <p class="text-[14px] text-neutral/50">Opened by ${modal.author}</p>
@@ -84,10 +194,12 @@ const showModal = (modal) => {
   document.getElementById("my_modal_5").showModal();
 };
 
+// all issues button
 const display = (alls) => {
   // console.log(alls);
   const issueContainer = document.getElementById("issue-container");
   issueContainer.innerHTML = "";
+  let count = 0;
   alls.forEach((all) => {
     const div = document.createElement("div");
     div.innerHTML = `
@@ -112,10 +224,24 @@ const display = (alls) => {
                     </div>
     
     `;
+    count++;
+    totalCount.innerText = count;
     issueContainer.append(div);
   });
 };
+// if nothing is found (search)
+const displayEmty = (nothing) => {
+  const emty = document.getElementById("emty");
+  emty.innerHTML = `
+  
+                    <h1 class="text-2xl font-bold">
+                        found nothing
+                    </h1>
+  
+  `;
+};
 
+// search
 document.getElementById("search-button").addEventListener("click", () => {
   const input = document.getElementById("input").value.trim().toLowerCase();
 
@@ -126,6 +252,10 @@ document.getElementById("search-button").addEventListener("click", () => {
       const filter = apiData.filter((word) =>
         word.title.toLowerCase().includes(input),
       );
+      if (filter.length === 0) {
+        totalCount.innerText = "0";
+        displayEmty(filter);
+      }
       display(filter);
     });
 });
@@ -133,3 +263,5 @@ document.getElementById("search-button").addEventListener("click", () => {
 window.onload = () => {
   ghurar("dim");
 };
+
+// console.log(showModal().childElementCount);
