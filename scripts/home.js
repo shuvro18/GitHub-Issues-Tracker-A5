@@ -41,10 +41,23 @@ function button(tab) {
   }
 }
 
+// spinner
+
+const spinner =(status)=>{
+  if(status=== true){
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("all-section").classList.add("hidden");
+  }else{
+    document.getElementById("spinner").classList.add("hidden");
+    document.getElementById("all-section").classList.remove("hidden")
+  }
+}
+
 // all button
 document.getElementById("all-button").addEventListener(
   "click",
   (ghurar = (dim) => {
+    spinner(true)
     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
       .then((res) => res.json())
       .then((data) => display(data.data));
@@ -54,6 +67,7 @@ document.getElementById("all-button").addEventListener(
 // open button
 
 document.getElementById("open-button").addEventListener("click", () => {
+  spinner(true)
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) => displayOpen(data.data));
@@ -94,10 +108,12 @@ const displayOpen = (alls) => {
     totalCount.innerText = count;
     issueContainer.append(div);
   });
+  spinner(false)
 };
 
 // closed button
 document.getElementById("closed-button").addEventListener("click", () => {
+  spinner(true)
   fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     .then((res) => res.json())
     .then((data) => displayClosed(data.data));
@@ -139,6 +155,7 @@ const displayClosed = (alls) => {
     totalCount.innerText = count;
     issueContainer.append(div);
   });
+  spinner(false);
 };
 
 // {
@@ -228,6 +245,7 @@ const display = (alls) => {
     totalCount.innerText = count;
     issueContainer.append(div);
   });
+  spinner(false);
 };
 // if nothing is found (search)
 const displayEmty = (nothing) => {
