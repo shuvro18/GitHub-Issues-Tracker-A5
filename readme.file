@@ -1,0 +1,34 @@
+// 1️ What is the difference between var, let, and const?
+Var : function scoped মানে function এর ভিতরে লিখলে তার বাইরে ও পাওয়া যায় । এক নামের Variabl বার বার তৈরি করা যায়। Hoisting a undefined দেখায়।
+
+let : block scoped মানে হলো {}এর ভিতরে লিখলে এর বাইরে পাওয়া যায় না । Variable মান পরিবর্তন করা যায় না । একই নামের variable bar বার তৈরি করা যায় । Hoisting হয় এবং ডিক্লেয়ার করার আগে ব্যবহার করতে গেলে reference error দেখায়
+
+
+Const : block scoped মানে হলো {}এর ভিতরে লিখলে এর বাইরে পাওয়া যায় না । Variable মান পরিবর্তন করা যায় না । একই নামের variable bar বার তৈরি করা যায় না । Hoisting হয় এবং ডিক্লেয়ার করার আগে ব্যবহার করতে গেলে reference error দেখায়
+
+// 2️ What is the spread operator (...)?
+Sprade operator হলো array বা object er ভিতরের উপাদান গুলো কে ছড়িয়ে দেওয়া । যা তিনটি (...)এর মাধ্যমে লেখা হয় | 
+
+// 3️ What is the difference between map(), filter(), and forEach()?
+সব গুলো ই হলো array er উপরে লুপ চালানোর উপায় ।
+
+ForEach : প্রতিটি উপাদান এর উপরে লুপ চালায় কিন্তু কোনো নতুন array return করে না ।
+
+Map() : প্রতিটি উপাদান এর উপরে  লুপ চালায় এবং ওই array er দৈর্ঘ্য এর সমান নতুন একটা array return করে।
+
+Filter() : প্রতিটি উপাদান এর উপরে লুপ চালায় এবং শর্ত পূরন করা উপাদান গুলোকে নিয়া নতুন একটা array return করে।
+
+// 4️ What is an arrow function?
+Arrow function হলো নরমাল function সংক্ষিপ্ত রূপ ।
+
+arrow : cost add = (a,b)=> a+b ;
+
+normal: function add( a,b){
+    const add = a +b ;
+    return add ;
+}
+
+// 5️ What are template literals?
+
+Template listener হলো ' ' বা " " এর পরিবর্তে  ` `এর ভিতরে স্ট্রিং লেখার পদ্ধতি  ব্যাকটিক use করলে এটির ভিতরে multi line স্ট্রিং লেখা যায় । ক্যালকুলেশন করা যায় । বিভিন্ন কন্ডিশন use করা যায়।
+
